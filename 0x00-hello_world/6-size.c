@@ -5,7 +5,7 @@
  *
  * Description: use the sizeof to print the size of various types.
  *
- * return: Alway 0 (Sucess)
+ * Return: Always 0 (Sucess)
 */
 
 int main(void)
