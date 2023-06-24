@@ -2,12 +2,12 @@
 
 /**
  * print_number - a function that prints an integer.
- * 
+ *
  * Return: Nothing
  */
 void print_number(int n)
 {
-	unsigned int num =n;
+	unsigned int num = n;
 
 	if (n < 0)
 	{
