@@ -2,9 +2,10 @@
 #include <stdio.h>
 
 /**
- * isLower - determines whether acii is lowercase
+ * isLower - a function that capitalizes all words of a string.
  *
  * @c: character
+ *
  * Return: 1 if true, 0 if false
  */
 int isLower(char c)
@@ -23,7 +24,7 @@ int isDelimiter(char c)
 }
 
 /**
- * cap_string - capitalizesall words of a string
+ * cap_string - capitalizes all words of a string
  *
  * @s: input string
  *
