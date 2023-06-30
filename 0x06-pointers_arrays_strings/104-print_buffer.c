@@ -62,7 +62,7 @@ void printASCII(char *b, int start, int end)
  * @b: string
  * @size: size of buffer
  */
-void print_buffer(char*b, int zize)
+void print_buffer(char *b, int size)
 {
 	int start, end;
 
