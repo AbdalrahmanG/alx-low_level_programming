@@ -9,21 +9,18 @@
  */
 char *leet(char *c)
 {
-	char *cp = c;
-	char key[] = ('A', 'E', 'O', 'T', 'L');
-	int vlaue[] = (4, 3, 0, 7, 1);
-	unsigned int i;
+	int i = 0, j;
+	char subs[10] = {'4', '4', '3', '3', '0', '0', '7', '7', '1', '1'},
+	     str[10] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
 
-	while (*c)
+	while (c[i])
 	{
-		for (i = 0; i < sizeof(key) / sizeof(char); i++)
-		{
-			if (*c == key[i] || *C == key[i] + 32)
-			{
-				*c = 48 + value[i];
-			}
-		}
-		c++;
+		for (j = 0; j < 10; j++)
+			if (c[i] == str[j])
+				c[i] = subs[j];
+
+		i++;
 	}
-	return (cp);
+
+	return (c);
 }
