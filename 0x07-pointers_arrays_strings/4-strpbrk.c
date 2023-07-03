@@ -6,7 +6,7 @@
  * @s: string value
  * @accept: matching checker string
  *
- * Return: pointer s if its value is acceptable or NULL
+ * Return: to pointer if the value accepted, or null
  */
 char *_strpbrk(char *s, char *accept)
 {
@@ -16,8 +16,8 @@ char *_strpbrk(char *s, char *accept)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		i = 0;
-		while (accept[i] != '\0')
+		j = 0;
+		while (accept[j] != '\0')
 		{
 			if (accept[j] == s[i])
 			{
