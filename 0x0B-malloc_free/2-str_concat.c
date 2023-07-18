@@ -1,4 +1,5 @@
 #include"main.h"
+#include <stddef.h>
 
 /**
  * str_concat - 2 strings by using mollc
@@ -8,7 +9,7 @@
  *
  * Return: string pointer
  */
-char str_concat(char *s, char *s2)
+char *str_concat(char *s, char *s2)
 {
 	char *m;
 	int a, b, c, d;
