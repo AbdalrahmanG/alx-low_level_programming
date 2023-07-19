@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * int_dog - dog initialize
+ * init_dog - dog initialize
  *
  * @d: intialiaze of dog
  * @name: dogs name
