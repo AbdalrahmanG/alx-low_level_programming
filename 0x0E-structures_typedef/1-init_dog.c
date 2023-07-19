@@ -1,4 +1,5 @@
 #include"dog.h"
+#include <stdlib.h>
 
 /**
  * int_dog - dog initialize
