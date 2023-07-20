@@ -12,8 +12,6 @@ void _printchar(va_list list)
 	printf("%c", va_arg(list, int));
 }
 
-
-
 /**
  * _printstr - for printing string from va_list
  * @list: va_list 
@@ -29,8 +27,6 @@ void _printstr(va_list list)
 	printf("%s", s);
 }
 
-
-
 /**
  * _printfloat - for printing float from va_list
  * @list: va_list
@@ -41,8 +37,6 @@ void _printfloat(va_list list)
 	printf("%f", va_arg(list, double));
 }
 
-
-
 /**
  * _printint - for printing int from va_list
  * @list: va_list
@@ -52,8 +46,6 @@ void _printint(va_list list)
 {
 	printf("%d", va_arg(list, int));
 }
-
-
 
 /**
  * print_all - for printing anything if it is int, char, float,  string.
