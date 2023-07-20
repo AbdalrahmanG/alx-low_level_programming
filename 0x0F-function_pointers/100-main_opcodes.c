@@ -12,7 +12,7 @@
  */
 int main(int argc, char **argv)
 {
-	char *j = (char *)main;
+	char *p = (char *)main;
 	int b;
 
 	if (argc != 2)
@@ -23,6 +23,6 @@ int main(int argc, char **argv)
 		printf("Error\n"), exit(2);
 
 	while (b--)
-		printf("%02hhx%s", *j++, b ? " " : "\n");
+		printf("%02hhx%s", *p++, b ? " " : "\n");
 	return (0);
 }
