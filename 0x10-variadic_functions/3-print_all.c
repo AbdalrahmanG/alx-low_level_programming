@@ -6,7 +6,6 @@
  * _printchar - for printing char type
  * @list: va_list
  */
-
 void _printchar(va_list list)
 {
 	printf("%c", va_arg(list, int));
@@ -16,7 +15,6 @@ void _printchar(va_list list)
  * _printstr - for printing string from va_list
  * @list: va_list 
  */
-
 void _printstr(va_list list)
 {
 	char *s;
@@ -31,7 +29,6 @@ void _printstr(va_list list)
  * _printfloat - for printing float from va_list
  * @list: va_list
  */
-
 void _printfloat(va_list list)
 {
 	printf("%f", va_arg(list, double));
@@ -41,7 +38,6 @@ void _printfloat(va_list list)
  * _printint - for printing int from va_list
  * @list: va_list
  */
-
 void _printint(va_list list)
 {
 	printf("%d", va_arg(list, int));
