@@ -9,21 +9,22 @@
  * @n: argument number
  * @...: integers
  *
- * Return: nothing
+ * Return: string
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	unsigned int i;
-	va_list list;
+	unsigned int i, num;
+	va_list string;
 
-	va_start(list, n);
+	num = 0;
+	va_start(string, n);
 	for (i = 0; i < n; i++)
 	{
-		printf("%d", va_arg(list, int));
+		num = va_arg(string, int);
+		printf("%d", num);
 		if (i != (n - 1) && separator != NULL)
 			printf("%s", separator);
 	}
 	printf("\n");
-
-	va_end(list);
+	va_end(string);
 }
