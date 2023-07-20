@@ -11,11 +11,11 @@
  * @token: token format
  * @f: fucntion
  */
-typedef struct token
+typedef struct types
 {
-	char *token;
-	void (*f)(char *, va_list);
-} token_t;
+	char *type;
+	void (*f)();
+} types;
 
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);
