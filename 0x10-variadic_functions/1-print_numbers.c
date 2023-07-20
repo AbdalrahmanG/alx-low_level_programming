@@ -2,9 +2,12 @@
 #include <stdio.h>
 
 /**
- * print_numbers - print each number with separator, followed by a newline
+ * print_numbers - for printing separator numbers
+ *
  * @separator: string to be printed between numbers
  * @n: number of args passed
+ *
+ * Return: void
  */
 
 void print_numbers(const char *separator, const unsigned int n, ...)
