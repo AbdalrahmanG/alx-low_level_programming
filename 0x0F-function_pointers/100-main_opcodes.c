@@ -13,7 +13,7 @@
 int main(int argc, char **argv)
 {
 	char *j = (char *)main;
-	int i;
+	int b;
 
 	if (argc != 2)
 		printf("Error\n"), exit(1);
@@ -23,6 +23,6 @@ int main(int argc, char **argv)
 		printf("Error\n"), exit(2);
 
 	while (b--)
-		printf("%02hhx%s", *p++, b ? " " : "\n");
+		printf("%02hhx%s", *j++, b ? " " : "\n");
 	return (0);
 }
