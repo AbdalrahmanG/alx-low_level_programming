@@ -3,44 +3,52 @@
 #include <stdio.h>
 
 /**
- * _printchar - for printing char type
- * @list: va_list
- */
-void _printchar(va_list list)
-{
-	printf("%c", va_arg(list, int));
-}
-
-/**
- * _printstr - for printing string from va_list
+ * format_int - for printing integers
+ *
+ * @separator: separator string
  * @list: va_list 
  */
-void _printstr(va_list list)
+void format_int(char *separator, va_list list)
 {
-	char *s;
-
-	s = va_arg(list, char *);
-	if (s == NULL)
-		s = "(nil)";
-	printf("%s", s);
+        printf("%s%d", separator, va_arg(list, int));
 }
 
 /**
- * _printfloat - for printing float from va_list
- * @list: va_list
+ * format_char - for printing string
+ *
+ * @separator: separator string
+ * @list: va_list 
  */
-void _printfloat(va_list list)
+void format_char(char *separator, va_list list)
 {
-	printf("%f", va_arg(list, double));
+	printf("%s%c", separator, va_arg(list, int));
 }
 
 /**
- * _printint - for printing int from va_list
+ * format_float - for printing float format
+ *
+ * @separator: separator string
+ * @list: va_list 
+ */
+void format_float(char *separator, va_list list)
+{
+        printf("%s%f", separator, va_arg(list, double));
+}
+
+/**
+ * format_string - for printing string
+ *
+ * @separator: separator string
  * @list: va_list
  */
-void _printint(va_list list)
+void format_string(char *separator, va_list list)
 {
-	printf("%d", va_arg(list, int));
+	char *str = va_arg(list, char *);
+
+	switch ((int)(!str))
+		case 1:
+		str = "(nil)";
+        printf("%s%s", separator, str);
 }
 
 /**
@@ -53,7 +61,7 @@ void print_all(const char * const format, ...)
 	va_list args;
 	char *sep;
 
-	checker storage[] = {
+	types storage[] = {
 		{ "c", _printchar },
 		{ "f", _printfloat },
 		{ "s", _printstr },
