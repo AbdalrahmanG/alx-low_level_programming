@@ -1,12 +1,17 @@
 #include <stdio.h>
-#include"list.h"
+#include"lists.h"
+
+void first(void) __attribute__ ((constructor));
 
 /**
- * before_main - for printing statement in fxn
+ * first - for printsing the sentence before main func.
+ *
  */
 
-void __attribute__((constructor)) before_main(void)
+void first(void)
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");
 }
+
+
