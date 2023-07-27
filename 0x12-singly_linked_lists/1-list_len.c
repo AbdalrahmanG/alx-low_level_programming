@@ -15,12 +15,11 @@ size_t list_len(const list_t *h)
 	size_t i;
 
 	i = 0;
-	current = u;
+	current = h;
 	while (current != NULL)
 	{
 		current = current->next;
-		u++;
+		i++;
 	}
-
-	return (u);
+	return (i);
 }
