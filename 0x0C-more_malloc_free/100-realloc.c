@@ -1,4 +1,5 @@
 #include"main.h"
+#include <stdlib.h>
 
 /**
  * _realloc - re-allocate a memory block
@@ -9,6 +10,7 @@
  *
  * Return: NULL when new_size = 0, and ptr is not NULL
  */
+
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *p1;
