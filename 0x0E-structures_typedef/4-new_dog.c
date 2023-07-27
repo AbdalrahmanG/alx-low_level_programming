@@ -1,49 +1,91 @@
-#include"dog.h"
 #include <stdlib.h>
+#include "dog.h"
 
 /**
- * new_dog - for creating a new dog
+ * _strlen - for returning to string length
  *
- * @name: string name
- * @age: int of dog age
- * @owner: dog owener
+ * @s: string
  *
- * Return: Pointer
+ * Return: string length
  */
+
+int _strlen(char *s)
+{
+	int a;
+
+	a = 0;
+
+	while (s[a] != '\0')
+	{
+		a++;
+	}
+	return (a);
+}
+
+/**
+ * *_strcpy - for copping the string
+ *
+ * @dest: buffer pointer
+ * @src: string
+ *
+ * Return: the pointer
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	int len, a;
+
+	len = 0;
+
+	while (src[len] != '\0')
+	{
+		len++;
+	}
+	for (a = 0; a < len; a++)
+	{
+		dest[a] = src[a];
+	}
+	dest[a] = '\0';
+	return (dest);
+}
+
+/**
+ * new_dog - creates dog
+ * @name: dog name
+ * @age: dog age
+ * @owner: dog owner
+ *
+ * Return: pointer to new dog (Success) or, NULL
+ */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	struct dog *dg;
-	int a, b, c;
-	char *n, *m;
+	dog_t *dog;
+	int len1, len2;
 
-	dg = malloc(sizeof(struct dog));
-	if (dg == NULL)
+	len1 = _strlen(name);
+	len2 = _strlen(owner);
+
+	dog = malloc(sizeof(dog_t));
+	if (dog == NULL)
 		return (NULL);
-	for (a = 0; name[a] != '\0'; a++)
-		;
-	for (b = 0; owner[b] != '\0'; b++)
-		;
-	n = malloc(sizeof(char) * a + 1);
-	if (n == NULL)
+
+	dog->name = malloc(sizeof(char) * (len1 + 1));
+	if (dog->name == NULL)
 	{
-		free(dg);
+		free(dog);
 		return (NULL);
 	}
-	m = malloc(sizeof(char) * b + 1);
-	if (m == NULL)
+	dog->owner = malloc(sizeof(char) * (len2 + 1));
+	if (dog->owner == NULL)
 	{
-		free(n);
-		free(dg);
+		free(dog);
+		free(dog->name);
 		return (NULL);
 	}
-	for (c = 0; c <= a; c++)
-		n[c] = name[c];
-	for (c = 0; c <= b; c++)
-		m[c] = owner[c];
+	_strcpy(dog->name, name);
+	_strcpy(dog->owner, owner);
+	dog->age = age;
 
-	dg->name = n;
-	dg->age = age;
-	dg->owner = o;
-
-	return (dg);
+	return (dog);
 }
