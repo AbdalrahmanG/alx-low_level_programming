@@ -15,13 +15,13 @@ size_t print_list(const list_t *h)
 	size_t i;
 
 	i = 0;
-	current = u;
+	current = h;
 	while (current != NULL)
 	{
 		printf("[%d] %s\n", current->len, current->str);
 		current = current->next;
-		u++;
+		i++;
 	}
 
-	return (u);
+	return (i);
 }
