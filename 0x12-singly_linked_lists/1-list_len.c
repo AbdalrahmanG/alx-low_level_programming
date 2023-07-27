@@ -2,14 +2,14 @@
 #include <stdio.h>
 
 /**
- * print_list - for printing every elements of `list_t`
+ * list_len - for returning the elements number in a linked `list_t`
  *
- * @h: linked head
+ * @h: linked list head
  *
- * Return: nodes number
+ * Return: elements number found in list
  */
 
-size_t print_list(const list_t *h)
+size_t list_len(const list_t *h)
 {
 	const list_t *current;
 	size_t i;
@@ -18,7 +18,6 @@ size_t print_list(const list_t *h)
 	current = u;
 	while (current != NULL)
 	{
-		printf("[%d] %s\n", current->len, current->str);
 		current = current->next;
 		u++;
 	}
