@@ -1,8 +1,8 @@
 #include "lists.h"
-#include <stdio.h>
 
 /**
  * free_list - free the `list_t`
+ *
  * @head: linked-list head
  */
 
