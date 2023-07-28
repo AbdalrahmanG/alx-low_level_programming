@@ -22,7 +22,7 @@ int wrdcnt(char *s)
 		}
 		else if
 			(a == 0)
-				n++;
+				b++;
 	}
 	b++;
 	return (b);
