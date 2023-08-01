@@ -13,9 +13,8 @@ void free_listint2(listint_t **head)
 	listint_t *friend;
 
 	if (head != NULL)
-		;
-	node = *head;
 	{
+		node = *head
 		while (*head != NULL)
 		{
 			temp = node;
