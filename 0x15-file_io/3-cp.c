@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 		r = write(oo, bu, ed);
-		
+
 		if (oo == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
