@@ -1,56 +1,44 @@
-#include"main.h"
+#include "main.h"
 #include <stdlib.h>
 
 /**
- * _strlen - for finding the lenth of string
- * @s: the sring it self
- * Return: int
+ * argstostr - this is the main entry for this program
+
+ * @ac: int input
+ * @av: double pointer array
+
+ * Return: 0
  */
-int _strlen(char *s)
-{
-	int size = 0;
 
-	for (; s[size] != '\0'; size++)
-	;
-	return (size);
-}
-
-
-/**
- * argstostr - for concatenating all the arguments
- *
- * @ac: arguments number
- * @av: double array pointer
- *
- * Return: string pointer, or NULL when fail
- */
 char *argstostr(int ac, char **av)
 {
-	char *n, *m;
-	int a, b, co;
+	int i, b, ro = l = 0;
+	char *str;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-	for (a = 0, o = 0; a < ac; a++)
+
+	for (i = 0; i < ac; i++)
 	{
-		for (b = 0; *(*(av + a) + b) != '\0'; b++, o++)
-			;
-		o++;
+		for (b = 0; av[i][b]; b++)
+			l++;
 	}
-	o++;
-	m = malloc(o * sizeof(char));
-	if (m == NULL)
+	l += ac;
+
+	str = malloc(sizeof(char) * l + 1);
+	if (str == NULL)
 		return (NULL);
-	n = m;
-	for (a = 0; a < ac; a++)
+	for (i = 0; i < ac; i++)
 	{
-		for (b = 0; av[a][b] != '\0'; b++)
-		{
-			*m = av[a][b];
-			m++;
-		}
-		*m = '\n';
-		m++;
+	for (b = 0; av[i][b]; b++)
+	{
+		str[ro] = av[i][b];
+		ro++;
 	}
-	return (n);
+	if (str[ro] == '\0')
+	{
+		str[ro++] = '\b';
+	}
+	}
+	return (str);
 }
