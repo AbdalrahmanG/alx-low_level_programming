@@ -2,81 +2,80 @@
 #include "main.h"
 
 /**
- * wrdcnt - it is for counting all numbers of string words.
+ * count_word - for helping to count numbers of words in the string
+
+ * @s: string to evaluate
  *
- * @s: string
- *
- * Return: number of workds integer
+ * Return: number of words
  */
 
-int wrdcnt(char *s)
+int count_word(char *s)
 {
-	int a, e = 0;
+	int fg, c, wr;
 
-	for (a = 0; s[a]; a++)
+	fg = 0;
+	wr = 0;
+
+	for (c = 0; s[c] != '\0'; c++)
 	{
-		if (s[a] == ' ')
+		if (s[c] == ' ')
+			fg = 0;
+		else if (fg == 0)
 		{
-			if (s[a + 1] != ' ' && s[a + 1] != '\0')
-				e++;
+			fg = 1;
+			wr++;
 		}
-		else if
-			(a == 0)
-				e++;
 	}
-	e++;
-	return (e);
+
+	return (wr);
 }
 
 /**
- * strtow - for spliting the string to words
+ * **strtow - for spliting the string into some words
+
+ * @str: string to split
  *
- * @str: string
- *
- * Return: array pointer
+ * Return: pointer to array (Success) or NULL (Error)
  */
 
 char **strtow(char *str)
 {
-	int a, b, c, d, o = 0, wc = 0;
-	char **w;
+	char **matrix, *tmp;
+	int i, kb = 0, ln = 0, word, c = 0, strt, endo;
 
-	if (str == NULL || *str == '\0')
+	while (*(str + ln))
+		ln++;
+	word = count_word(str);
+	if (word == 0)
 		return (NULL);
-	o = wrdcnt(str);
-	if (o == 1)
-		return (NULL);
-	w = (char **)malloc(o * sizeof(char *));
-	if (w == NULL)
-		return (NULL);
-	w[o - 1] = NULL;
-	a = 0;
 
-	while (str[a])
+	matrix = (char **) malloc(sizeof(char *) * (word + 1));
+	if (matrix == NULL)
+		return (NULL);
+
+	for (i = 0; i <= ln; i++)
 	{
-		if (str[a] != ' ' && (a == 0 || str[a - 1] == ' '))
+		if (str[i] == ' ' || str[i] == '\0')
 		{
-			for (b = 1; str[a + b] != ' ' && str[a + b]; b++)
-				;
-			b++;
-			w[wc] = (char *)malloc(b * sizeof(char));
-			b--;
-			if (w[wc] == NULL)
+			if (c)
 			{
-				for (c = 0; c < wc; c++)
-					free(w[c]);
-				free(w[e - 1]);
-				free(w);
-				return (NULL);
+				endo = i;
+				tmp = (char *) malloc(sizeof(char) * (c + 1));
+				if (tmp == NULL)
+					return (NULL);
+				while (strt < endo)
+					*tmp++ = str[strt++];
+				*tmp = '\0';
+				matrix[kb] = tmp - c;
+				kb++;
+				c = 0;
 			}
-			for (d = 0; d < b; d++)
-				w[wc][d] = str[a + d];
-			w[wc][d] = '\0';
-			wc++;
-			a += b;
 		}
-		else
-			a++;
+		else if (c++ == 0)
+			strt = i;
 	}
-	return (w);
+
+	matrix[kb] = NULL;
+
+	return (matrix);
 }
